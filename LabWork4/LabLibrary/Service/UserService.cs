@@ -46,7 +46,7 @@ namespace LabLibrary.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<User?> GetUserByIdAsync(int id) => await _context.Users.FirstOrDefaultAsync(u=>u.Id == id);
+        public async Task<User?> GetUserByIdAsync(int id) => await _context.Users.Include(u=> u.Role).FirstOrDefaultAsync(u=>u.Id == id);
 
         public async Task<List<Role>> GetRolesAsync() => await _context.Roles.ToListAsync();
     }
