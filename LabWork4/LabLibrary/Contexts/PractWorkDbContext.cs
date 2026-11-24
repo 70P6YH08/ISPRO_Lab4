@@ -16,14 +16,25 @@ namespace LabLibrary.Contexts
             => Database.EnsureCreated();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite("Data Source=pract3.db");
+            => optionsBuilder.UseSqlite("Data Source=pract.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.Role)
-                .WithMany(r => r.Users)
-                .HasForeignKey(u => u.RoleId);
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(u => u.Id);
+                entity.Property(u => u.Id).ValueGeneratedOnAdd();
+
+                entity.HasOne(u => u.Role)
+                      .WithMany(r => r.Users)
+                      .HasForeignKey(u => u.RoleId);
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.HasKey(r => r.Id);
+                entity.Property(r => r.Id).ValueGeneratedOnAdd();
+            });
 
             modelBuilder.Entity<User>().HasData(
                 new User()
@@ -58,7 +69,7 @@ namespace LabLibrary.Contexts
                     Email = "milena@yandex.ru",
                     PhoneNumber = "89422627223",
                     Password = "milenasbab"
-                }, 
+                },
                 new User()
                 {
                     Id = 4,
