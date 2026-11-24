@@ -106,7 +106,7 @@ namespace LabApp.Views
                 return;
             }
 
-            UserDetailsWindow userDetailsWindow = new(selectedUser);
+            UserDetailsWindow userDetailsWindow = new(selectedUser, _userService);
             userDetailsWindow.ShowDialog();
         }
     }

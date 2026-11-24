@@ -22,6 +22,7 @@ namespace LabApp
             services.AddSingleton<PractWorkDbContext>();
             services.AddSingleton<UserService>();
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<UserDetailsWindow>();
 
             _serviceProvider = services.BuildServiceProvider();
         }
