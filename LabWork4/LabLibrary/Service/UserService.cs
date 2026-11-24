@@ -10,7 +10,7 @@ namespace LabLibrary.Services
     public class UserService
     {
         private readonly PractWorkDbContext _context = new();
-        public async Task<List<User>> GetUsersAsync() => await _context.Users.ToListAsync();
+        public async Task<List<User>> GetUsersAsync() => await _context.Users.Include(u=> u.Role).ToListAsync();
 
         public async Task AddUserAsync(User user) { 
             await _context.Users.AddAsync(user);
@@ -30,12 +30,11 @@ namespace LabLibrary.Services
 
         public async Task UpdateUserAsync(User user)
         {
-            var selectedUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+            User? selectedUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
 
             if (user is null)
                 return;
 
-            selectedUser.Email = user.Email;
             selectedUser.FirstName = user.FirstName;
             selectedUser.LastName = user.LastName;
             selectedUser.Email = user.Email;
@@ -48,5 +47,7 @@ namespace LabLibrary.Services
         }
 
         public async Task<User?> GetUserByIdAsync(int id) => await _context.Users.FirstOrDefaultAsync(u=>u.Id == id);
+
+        public async Task<List<Role>> GetRolesAsync() => await _context.Roles.ToListAsync();
     }
 }
