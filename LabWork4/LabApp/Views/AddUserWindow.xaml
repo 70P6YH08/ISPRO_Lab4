@@ -22,21 +22,23 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Left">
-            <TextBlock Text="Имя"/>
-            <TextBlock Text="Фамилия"/>
-            <TextBlock Text="Логин"/>
-            <TextBlock Text="Почта"/>
-            <TextBlock Text="Номер телефона"/>
-            <TextBlock Text="Роль"/>
+            <TextBlock Text="Имя" Margin="0 0 0 2"/>
+            <TextBlock Text="Фамилия" Margin="0 0 0 2"/>
+            <TextBlock Text="Логин" Margin="0 0 0 2"/>
+            <TextBlock Text="Почта" Margin="0 0 0 2"/>
+            <TextBlock Text="Номер телефона" Margin="0 0 0 2"/>
+            <TextBlock Text="Роль" Margin="0 0 0 2"/>
+            <TextBlock Text="Пароль" Margin="0 0 0 2"/>
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left">
-            <TextBox x:Name="nameTextBox" Width="200" Grid.Row="0" Grid.Column="1"/>
-            <TextBox x:Name="surnameTextBox" Width="200" Grid.Row="1" Grid.Column="1"/>
-            <TextBox x:Name="loginTextBox" Width="200" Grid.Row="2" Grid.Column="1"/>
-            <TextBox x:Name="emailTextBox" Width="200" Grid.Row="3" Grid.Column="1"/>
-            <TextBox x:Name="phoneTextBox" Width="200" Grid.Row="4" Grid.Column="1"/>
-            <TextBox x:Name="roleNameTextBox" Width="200" Grid.Row="5" Grid.Column="1"/>
+            <TextBox x:Name="nameTextBox" Width="300"/>
+            <TextBox x:Name="surnameTextBox" Width="300"/>
+            <TextBox x:Name="loginTextBox" Width="300"/>
+            <TextBox x:Name="emailTextBox" Width="300"/>
+            <TextBox x:Name="phoneTextBox" Width="300"/>
+            <TextBox x:Name="roleNameTextBox" Width="300"/>
+            <PasswordBox x:Name="passPasswordBox" Width="300"/>
         </StackPanel>
-        <Button x:Name="updateUserButton" Grid.Row="7" Content="Изменить" Click="updateUserButton_Click"/>
+        <Button x:Name="addUserButton" Grid.Row="7" Content="Добавить" Click="addUserButton_Click"/>
     </Grid>
 </Window>
