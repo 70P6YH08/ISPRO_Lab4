@@ -68,6 +68,9 @@ namespace LabApp.Views
                     RoleId = role.Id,
                 });
                 MessageBox.Show("Изменение успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                MainWindow mainWindow = new(_userService);
+                mainWindow.Show();
+                this.Close();
             }
             catch(Exception ex)
             {

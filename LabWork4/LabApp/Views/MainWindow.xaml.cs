@@ -107,7 +107,15 @@ namespace LabApp.Views
             }
 
             UserDetailsWindow userDetailsWindow = new(selectedUser, _userService);
-            userDetailsWindow.ShowDialog();
+            userDetailsWindow.Show();
+            this.Close();
+        }
+
+        private void addUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserWindow addUserWindow = new(_userService);
+            addUserWindow.Show();
+            this.Close();
         }
     }
 }

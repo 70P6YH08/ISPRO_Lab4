@@ -14,8 +14,9 @@
         </Grid.RowDefinitions>
         <DockPanel>
             <TextBlock Text="Поиск" Width="100" Grid.Column="0" HorizontalAlignment="Left"/>
-            <TextBox x:Name="searchFieldTextBox" Width="200" Grid.Column="1"
+            <TextBox x:Name="searchFieldTextBox" Width="200" Grid.Column="1" Margin="0 0 50 0"
                  HorizontalAlignment="Left" TextChanged="searchFieldTextBox_TextChanged"/>
+            <Button x:Name="addUserButton" Content="Добавление пользователя" Width="270" HorizontalAlignment="Right" Click="addUserButton_Click"/>
         </DockPanel>
 
         <DataGrid x:Name="usersListDataGrid" AutoGenerateColumns="False" SelectedItem="{Binding SelectedUser}"
